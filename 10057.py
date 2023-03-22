@@ -12,18 +12,11 @@ alphabet = {'a' : '1', 'b' : '2', 'c' : '3', 'd' : '4', 'e' : '5', 'f' : '6', 'g
 def solve(n, nums):
     nums.sort()
     mid1, mid2 = n // 2, n // 2 - 1
-    different1  = [abs(nums[mid1] - i) for i in nums]
-    different2 = [abs(nums[mid2] - i) for i in nums]
-    # print(nums)
     if n % 2 == 0:
-        return f'{min(nums[mid1], nums[mid2])} {nums.count(min(nums[mid1], nums[mid2]))} {nums[mid1] - nums[mid2] + 1}'
-        if sum(different1) < sum(different2):
-            return f'{nums[mid1]} {different1.count(0) + different2.count(0)} {nums[mid1] - nums[mid2] + 1}'
-        else:
-            print(sorted(different2))
-            print(sorted(different1))
-            return f'{nums[mid2]} {different1.count(0) + different2.count(0)} {nums[mid1] - nums[mid2] + 1}'
-    return f'{nums[mid1]} {nums.count(min(nums[mid1], nums[mid2]))} 1'
+        if nums[mid1] == nums[mid2]:
+            return f'{min(nums[mid1], nums[mid2])} {nums.count(nums[mid1])} {nums[mid1] - nums[mid2] + 1}'
+        return f'{min(nums[mid1], nums[mid2])} {nums.count(nums[mid1]) + nums.count(nums[mid2])} {nums[mid1] - nums[mid2] + 1}'
+    return f'{nums[mid1]} {nums.count(nums[mid1])} 1'
 
 while True:
     try:
@@ -35,3 +28,4 @@ while True:
         print(solve(n, nums))
     except EOFError:
         break
+# Accepted	PYTH3	5.410
