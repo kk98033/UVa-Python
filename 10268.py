@@ -26,4 +26,5 @@ while True:
         print(solve(x, nums))
     except EOFError:
         break
-# Time limit exceeded	PYTH3	3.000 WTF DUDE???
+# Online Judge -Time limit exceeded	PYTH3	3.000 WTF DUDE???
+# ZeroJudge - AC (0.2s, 3.3MB)
