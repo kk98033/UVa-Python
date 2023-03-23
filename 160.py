@@ -33,6 +33,7 @@ def solve(n):
                 ansList[index] += 1
                 i //= prime
 
+    # print answer
     head = f'{n:>3}! ='
     print(head, end='')
     for i, ans in enumerate(ansList):
@@ -44,7 +45,60 @@ def solve(n):
         
     print()
 
-primeTable = getPrimeTable()
+# primeTable = getPrimeTable()
+# while True:
+#     try:
+#         n = int(input())
+#         if n == 0: break
+
+#         solve(n)
+#     except EOFError:
+#         break
+# Accepted	PYTH3	0.040
+
+# UVa 160 - Factors and Factorials
+# 2023/03/21/ CPE - 5
+def isPrime(n):
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def getPrimeTable():
+    primeTable = {i:0 for i in range(2, 100) if isPrime(i)}
+    return primeTable
+
+def solve(n):
+    primeTable = getPrimeTable()
+
+    temp = 1
+    for i in range(1, n+1): temp *= i
+
+    tail = 2
+    for prime in primeTable.keys():
+        if temp < prime: break
+        while temp % prime == 0:
+            tail = prime
+            temp //= prime
+            primeTable[prime] += 1
+
+    # print answer
+    count = 0
+    head = f'{n:>3}! ='
+    print(head, end='')
+    for prime, times in primeTable.items():
+        if prime > tail: break
+
+        if count % 15 == 0 and count != 0: 
+            print()
+            print(len(head) * ' ', end='')
+            
+        print(f'{times:>3}', end='')
+        count += 1
+    print()
+
+    return primeTable
+
 while True:
     try:
         n = int(input())
