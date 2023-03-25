@@ -41,5 +41,5 @@ for t in range(T):
         except EOFError:
             print(solve(trees))
             break
-# UVa: Time limit exceeded	PYTH3	3.000
+# OnlineJudge: Time limit exceeded	PYTH3	3.000
 # ZeroJudge: AC (5.2s, 76.1MB)
