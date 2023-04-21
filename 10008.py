@@ -16,17 +16,17 @@ def solve(text):
         if 'A' <= i <= 'Z':
             ans[i] = ans.get(i, 0) + 1
     ansList = [f'{key} {val}' for key, val in ans.items()]
-    ansList.sort(key=lambda x: (-int(x[2]), x[0]))
+    ansList.sort(key=lambda x: (-int(x[2:]), x[0]))
     return '\n'.join(ansList)
 
 def solveOneLine(text):
-    return '\n'.join(sorted([f'{key} {val}' for key, val in Counter([i for i in text if 'A' <= i <= 'Z']).items()], key=lambda x: (-int(x[2]), x[0])))
+    return '\n'.join(sorted([f'{key} {val}' for key, val in Counter([i for i in text if 'A' <= i <= 'Z']).items()], key=lambda x: (-int(x[2:]), x[0])))
 
 
 T = int(input())
 text = ''
 for t in range(T):
     text += input()
-# print(solve(text.upper()))
-print(solveOneLine(text.upper()))
+print(solve(text.upper()))
+# print(solveOneLine(text.upper()))
 # Accepted	PYTH3	0.000
