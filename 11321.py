@@ -2,6 +2,7 @@
 import sys
 sys.stdin = open('input.txt', 'r')
 sys.stdout = open('output.txt', 'w')
+# -*- coding: UTF-8 -*-
 ''''''
 
 from collections import defaultdict

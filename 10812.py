@@ -23,7 +23,7 @@ def solve(sums, different):
     y = (sums - different) / 2
     x = (sums - different) / 2 + different
 
-    if not y.is_integer(): 
+    if not y.is_integer(): # [or use isinstance(y, float)]
         return 'impossible' # float
     return f'{int(x)} {int(y)}'
 
