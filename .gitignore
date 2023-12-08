@@ -3,3 +3,5 @@ text.py
 .DS_Store
 .history
 *.txt
+.vscode
+10635.dSYM
