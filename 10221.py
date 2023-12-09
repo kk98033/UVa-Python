@@ -17,13 +17,19 @@ import math
 def solve(s, a, d):
     r = 6440 # earth radius
 
-    if d == 'min': a /= 60
-    if a > 180: a = abs(360 - a)
+    if d == 'min': a /= 60 # 如果角度單位是分鐘，轉換成度
+    if a > 180: a = abs(360 - a) # 處理角度超過180度的情況，使用補角
 
-    rad = math.pi / 180 * a
+    rad = math.pi / 180 * a # 將角度從度轉換成弧度
+
+    # 計算弧長，使用公式：弧長 = 半徑 * 弧度
     arc = (r + s) * rad
+
+    # 計算弦長，使用公式：弦長 = 2 * 半徑 * sin(弧度 / 2)
     chord = 2 * (r + s) * math.sin(rad / 2)
-    return f'{round(arc, 6):.6f} {round(chord, 6):.6f}' # https://stackoverflow.com/questions/19986662/rounding-a-number-in-python-but-keeping-ending-zeros
+
+    # 返回結果，並保留六位小數。使用round函數來實現，參考：https://stackoverflow.com/questions/19986662/rounding-a-number-in-python-but-keeping-ending-zeros
+    return f'{round(arc, 6):.6f} {round(chord, 6):.6f}'
 
 while True:
     try:
