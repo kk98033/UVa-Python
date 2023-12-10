@@ -12,6 +12,7 @@ alphabet = {'a' : '1', 'b' : '2', 'c' : '3', 'd' : '4', 'e' : '5', 'f' : '6', 'g
 '''
 chord formula: https://flexbooks.ck12.org/cbook/ck-12-trigonometry-concepts/section/2.7/primary/lesson/length-of-a-chord-trig/
 arc formula: https://byjus.com/arc-length-formula/
+wiki: https://en.wikipedia.org/wiki/Circular_segment#:~:text=,shown%20above%20the%20green%20area
 '''
 import math
 def solve(s, a, d):
