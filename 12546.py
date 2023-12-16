@@ -26,8 +26,8 @@ for t in range(T):
     print(f"Case { t+1 }: { ans }")
 # Accepted	PYTH3	0.230
 
-''' 以下為參考的 code '''
 
+# 100% TLE
 # import math, itertools
 # def solve(n, maxN, nums):
 #     ans = 0
@@ -58,7 +58,7 @@ for t in range(T):
 #     # print(nums)
 #     print(f'Case {t+1}: {solve(n, maxN, nums)}')
 
-
+''' 以下為參考的 code '''
 
 # UVa 12546 - LCM Pair Sum
 # MOD = 1000000007
