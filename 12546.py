@@ -42,7 +42,7 @@ for t in range(T):
 #         for j in range(i, len(factors)):
 #             # print(factors[i], factors[j], math.lcm(factors[i], factors[j]))
 #             if math.lcm(factors[i], factors[j]) == maxN:
-#                 ans += (factors[i] + factors[j])
+#                 ans = (ans + (factors[i] + factors[j])) % 1000000007
 #                 # print(factors[i], factors[j])
 #     return ans % 1000000007
 

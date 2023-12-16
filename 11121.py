@@ -16,7 +16,6 @@ def solve(n):
     result = ''
     while n != 0:
         remainder = n % -2
-        # print(n, remainder, n // -2)
 
         n = n // -2
 
