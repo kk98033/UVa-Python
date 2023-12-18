@@ -14,7 +14,7 @@ def solve(k, w, signs):
     for i in range(w-1):
         sameLetters = k
         for sameLetters in range(k, -1, -1):
-            if signs[i][k-sameLetters:] == signs[i+1][0:sameLetters]:
+            if signs[i][-sameLetters:] == signs[i+1][:sameLetters]:
                 break
         ans += k - sameLetters
     return ans
@@ -24,4 +24,4 @@ for t in range(T):
     k, w = list(map(int, input().split()))
     signs = [[i for i in input()] for _ in range(w)]
     print(solve(k, w, signs))
-# 	Accepted	PYTH3	0.040
+# 	Accepted	PYTH3	0.030
