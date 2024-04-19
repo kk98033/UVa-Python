@@ -6,11 +6,7 @@ sys.stdout = open('output.txt', 'w')
 
 # UVa 11005 - Cheapest Base
 def solve(table, nums):
-    tableDict = {}
-    index = 0
-    for _ in range(36):
-        tableDict[index] = table[index]
-        index += 1
+    tableDict = { i: table[i] for i in range(36) }
 
     for n in nums:
         costs = [0] * 37
