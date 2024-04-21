@@ -10,12 +10,12 @@ alphabet = {'a' : '1', 'b' : '2', 'c' : '3', 'd' : '4', 'e' : '5', 'f' : '6', 'g
 
 # UVa 11332 - Summing Digits
 def solve(n):
-    sums = n
+    ans = n
     n = list(map(int, n))
     while len(n) > 1:
-        sums = sum(n)
-        n = list(map(int, str(sums)))
-    return sums
+        ans = sum(n)
+        n = list(map(int, str(ans)))
+    return ans
 
 def solve2(n):
     n = int(n)
