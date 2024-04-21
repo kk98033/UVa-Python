@@ -17,11 +17,16 @@ def solve(n):
         n = list(map(int, str(sums)))
     return sums
 
+def solve2(n):
+    n = int(n)
+    if n == 0: return 0
+    if n % 9 == 0: return 9
+    return n % 9
 while True:
     try:
         n = input()
         if n == '0': break
-        print(solve(n))
+        print(solve2(n))
     except EOFError:
         break
 # Accepted	PYTH3	0.020
