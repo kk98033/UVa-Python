@@ -11,41 +11,27 @@ alphabet = {'a' : '1', 'b' : '2', 'c' : '3', 'd' : '4', 'e' : '5', 'f' : '6', 'g
 # UVa 10908 - Largest Square
 def check(m, n, row, col):
     mid = matrix[row][col]
-    length = 3
+    length = 1
     index = 1
     while True:
-        topLeftRow, topLeftCol = row - (index), col - (index)
-        curRow, curCol = topLeftRow, topLeftCol
+        newLength = length + 2
+        topLeftRow, topLeftCol = row - index, col - index # 新的正方形左上角座標
 
-        for i in range(length-1): # top row (left -> right)
-            curCol += 1
-            if 0 <= curCol < n and matrix[curRow][curCol] == mid: 
-                continue
-            else: 
-                return length - 2
+        # 檢查邊界
+        if not (0 <= topLeftRow < m and 0 <= topLeftCol < n and 
+                topLeftRow + newLength - 1 < m and topLeftCol + newLength - 1 < n):
+            return length
+        
+        # 檢查邊框上的所有字符是否與中心點字符相同
+        for i in range(newLength):
+            # 檢查上下邊框和左右邊框            
+            if not (matrix[topLeftRow][topLeftCol + i] == mid and
+                    matrix[topLeftRow + newLength - 1][topLeftCol + i] == mid and
+                    matrix[topLeftRow + i][topLeftCol] == mid and
+                    matrix[topLeftRow + i][topLeftCol + newLength - 1] == mid):
+                return length
 
-        for i in range(length-1): # right column (top -> bottom)
-            curRow += 1
-            if 0 <= curRow < m and matrix[curRow][curCol] == mid: 
-                continue
-            else: 
-                return length - 2
-
-        for i in range(length-1): # bottom row (right -> left)
-            curCol -= 1
-            if 0 <= curCol < n and matrix[curRow][curCol] == mid: 
-                continue
-            else: 
-                return length - 2
-
-        for i in range(length-1): # left column (bottom -> top)
-            curRow -= 1
-            if 0 <= curRow < m and matrix[curRow][curCol] == mid: 
-                continue
-            else: 
-                return length - 2
-
-        length += 2
+        length = newLength
         index += 1
         
 T = int(input())
